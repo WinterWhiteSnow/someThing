@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>상품검색</title>
+		<meta charset="UTF-8">
+		<style>		
+			body {
+				font-weight: lighter;
+				font-family: serif;
+			}
+			h1 {
+				margin-top:50px;
+				margin-bottom:0px;
+				font-size:80px;
+				text-align:center;
+			}			
+			h4 {
+				font-size:50px;
+				text-align:center;
+			}
+			form {
+				text-align:center;
+			}
+			input {
+				width:800px;
+				height:150px;
+				text-align:center;
+				font-size:80px;
+				border-top: None;
+				border-left: None;
+				border-right: None;
+				border-width: 0px 0px 10px 0px;
+				outline:none;
+				caret-color:red;
+				caret-weight: bold;
+			}
+			input::placeholder {
+				font-size:40px;
+				font-family: serif;
+			}
+			span {
+				font-size:35px;
+				padding-bottom:10px;
+				margin:None;
+				font-weight: None;
+				font-family: None;
+			}
+			.button {
+				padding-top:20px;
+			}
+			button {
+				margin-top:80px;
+				width:650px;
+				height:200px;
+				border:None;
+				border-radius: 85px;
+				font-size:80px;				
+			}
+			a {
+				text-decoration-line: None;
+			}
+			button:active {
+				box-shadow: 2px 2px 2px rgba(172, 172, 172, 0.25);
+			}
+		</style>
+	</head>
+
+<body>
+	<main>
+		{% if word == None and url ==None%}	
+			<form action="/" method="get">
+				<h1> 살 물건을 적으세요 </h1>
+					<input type="text" name="word" required />
+				<h1> 최소금액을 적으세요 </h1>
+					<input type="text" name="mini" required />
+				<h1> 최대금액을 적으세요 </h1>
+					<input type="text" name="max" required />
+				<h1> 버튼을 눌러주세요 </h1>
+					<button type="submit">입력하기</button>
+		{%else%}
+			<h1> 검색하려는 물품 : {{word[0]}} </h1>
+			<h1> 최소금액 : {{word[1]}} </h1>
+			<h1> 최대금액 : {{word[2]}} </h1>
+				<button type="button" onClick="window.open('http://127.0.0.1:5000/')" >뒤로가기</button>
+				<button class="wow" type="button" onClick="window.open('{{url}}')">검색하기</button>
+		{% endif %}	
+		</form>	
+	</main>
+</body>
+
+</html>
